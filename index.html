@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWA Executive Fellowship</title>
+<meta name="description" content="A year-long, cohort-based leadership fellowship for California's workforce development executives — a program of the California Workforce Association.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E27A50;
+    --coral-dark:#C9623B;
+    --coral-tint:#F6E4DB;
+    --coral-wash:#FBF0EA;
+    --navy:#1A375D;
+    --navy-deep:#122842;
+    --navy-tint:#3B5578;
+    --navy-wash:#EAEEF3;
+    --ground:#FAF7F3;
+    --white:#FFFFFF;
+    --ink:#1A375D;
+    --muted:#5B6A7D;
+    --line:#E7DFD6;
+    --shadow:0 18px 48px -24px rgba(26,55,93,.28);
+    --shadow-sm:0 8px 24px -16px rgba(26,55,93,.35);
+    --radius:20px;
+    --radius-lg:28px;
+    --maxw:1100px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--ground);
+    color:var(--ink);
+    font-size:18px;
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;width:100%}
+  section{padding:96px 0}
+
+  /* Typographic scale */
+  h1,h2,h3{line-height:1.08;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+  h1{font-size:clamp(2.6rem,6.5vw,4.6rem);font-weight:800}
+  h2{font-size:clamp(2rem,4.2vw,3rem)}
+  h3{font-size:1.25rem;letter-spacing:-.01em}
+  p{color:var(--muted)}
+  .lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--navy-tint);font-weight:400}
+
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--coral-dark);display:inline-block;
+  }
+  .eyebrow.light{color:var(--coral)}
+
+  .hl{color:var(--coral)}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:inherit;font-size:1rem;font-weight:600;letter-spacing:-.01em;
+    padding:16px 30px;border-radius:999px;border:2px solid transparent;
+    cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),color .2s;
+    line-height:1;
+  }
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 12px 30px -12px rgba(226,122,80,.7)}
+  .btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--coral);color:var(--coral-dark);transform:translateY(-2px)}
+  .btn-arrow{transition:transform .25s var(--ease)}
+  .btn:hover .btn-arrow{transform:translateX(4px)}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--coral);outline-offset:3px;border-radius:8px;
+  }
+
+  .linkarrow{
+    display:inline-flex;align-items:center;gap:.4em;font-weight:600;color:var(--navy);
+    border-bottom:2px solid transparent;transition:color .2s,border-color .2s;padding-bottom:2px;
+  }
+  .linkarrow:hover{color:var(--coral-dark);border-color:var(--coral)}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,247,243,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(231,223,214,.8);
+  }
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  .lockup{display:flex;flex-direction:column;line-height:1;letter-spacing:-.01em}
+  .lockup .cwa{font-weight:800;font-size:1.35rem;color:var(--coral);letter-spacing:.02em}
+  .lockup .ef{font-weight:500;font-size:.82rem;color:var(--navy);text-transform:lowercase;letter-spacing:.02em;margin-top:3px}
+  .logo-img{height:48px;width:auto;display:block}
+  .site .btn{padding:12px 24px;font-size:.92rem}
+
+  /* Hero */
+  .hero{position:relative;padding:88px 0 96px;overflow:hidden}
+  .hero .wrap{position:relative;z-index:2;max-width:900px}
+  .hero h1{margin:22px 0 24px}
+  .hero .lead{max-width:640px;margin-bottom:36px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:44px}
+  .markers{display:flex;flex-wrap:wrap;gap:14px}
+  .marker{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--white);border:1px solid var(--line);border-radius:999px;
+    padding:10px 18px;font-size:.9rem;font-weight:500;color:var(--navy);box-shadow:var(--shadow-sm);
+  }
+  .marker .dot{width:9px;height:9px;border-radius:50%;background:var(--coral);flex:none}
+
+  /* Abstract geometry */
+  .geo{position:absolute;border-radius:50%;z-index:1;pointer-events:none}
+  .geo-ring{border:2px solid var(--coral-tint);background:transparent}
+  .hero .g1{width:420px;height:420px;top:-140px;right:-120px;background:var(--coral-wash)}
+  .hero .g2{width:180px;height:180px;bottom:20px;right:14%;border:2px solid var(--coral-tint);background:transparent}
+  .hero .g3{width:14px;height:14px;top:26%;right:8%;background:var(--coral)}
+  .hero .g4{width:10px;height:10px;bottom:34%;left:2%;background:var(--navy)}
+
+  /* Dual Imperative */
+  .imperative{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+  .imperative .wrap{position:relative;z-index:2;max-width:920px}
+  .imperative h2{color:#fff;font-size:clamp(1.9rem,4vw,3.1rem);margin:20px 0}
+  .imperative h2 .hl{color:var(--coral)}
+  .imperative p{color:rgba(255,255,255,.72);font-size:1.15rem;max-width:680px}
+  .imperative .quote-mark{
+    font-size:9rem;line-height:.6;color:var(--coral);opacity:.55;font-weight:800;display:block;margin-bottom:-10px
+  }
+  .imperative .ig1{position:absolute;width:520px;height:520px;border:2px solid rgba(226,122,80,.16);border-radius:50%;top:-200px;left:-160px;z-index:1}
+  .imperative .ig2{position:absolute;width:16px;height:16px;background:var(--coral);border-radius:50%;bottom:22%;right:10%;z-index:1}
+  .imperative .ig3{position:absolute;width:240px;height:240px;background:rgba(226,122,80,.06);border-radius:50%;bottom:-120px;right:-60px;z-index:1}
+
+  /* Section heading block */
+  .sec-head{max-width:680px;margin-bottom:56px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{margin:16px 0 14px}
+  .sec-head p{font-size:1.1rem}
+
+  /* Outcome cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px 30px;box-shadow:var(--shadow);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 26px 60px -28px rgba(26,55,93,.4);border-color:var(--coral-tint)}
+  .card .ico{
+    width:54px;height:54px;border-radius:14px;background:var(--coral-wash);
+    display:grid;place-items:center;margin-bottom:20px;
+  }
+  .card .ico svg{width:28px;height:28px;stroke:var(--coral-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{margin-bottom:10px}
+  .card p{font-size:.98rem}
+  .card.feature-wide{grid-column:1/-1;display:flex;gap:28px;align-items:flex-start;background:var(--navy);border-color:var(--navy)}
+  .card.feature-wide h3,.card.feature-wide p{color:#fff}
+  .card.feature-wide p{color:rgba(255,255,255,.72)}
+  .card.feature-wide .ico{background:rgba(255,255,255,.1)}
+  .card.feature-wide .ico svg{stroke:var(--coral)}
+  .card.feature-wide .txt{flex:1}
+
+  /* Timeline */
+  .timeline-sec{background:var(--navy-wash)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:20px}
+  .timeline::before{
+    content:"";position:absolute;top:26px;left:12%;right:12%;height:2px;
+    background:linear-gradient(90deg,var(--coral-tint),var(--coral),var(--coral-tint));z-index:0;
+  }
+  .tl-item{position:relative;padding:0 16px;z-index:1;text-align:center}
+  .tl-node{
+    width:54px;height:54px;border-radius:50%;background:var(--white);border:2px solid var(--coral);
+    display:grid;place-items:center;margin:0 auto 22px;font-weight:700;color:var(--coral-dark);
+    box-shadow:0 0 0 6px var(--navy-wash);position:relative;
+  }
+  .tl-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 20px;box-shadow:var(--shadow-sm);text-align:left;height:100%}
+  .tl-when{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-dark)}
+  .tl-card h3{font-size:1.05rem;margin:8px 0 8px}
+  .tl-card p{font-size:.9rem}
+  .tl-note{
+    margin-top:44px;background:var(--white);border-left:4px solid var(--coral);
+    border-radius:0 14px 14px 0;padding:22px 26px;box-shadow:var(--shadow-sm);max-width:760px;
+  }
+  .tl-note p{color:var(--navy-tint);font-size:1rem;margin:0}
+  .illustrative{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:10px}
+
+  /* Guides */
+  .guides{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .guide{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;display:flex;gap:24px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .guide .photo{
+    width:112px;height:112px;border-radius:18px;flex:none;
+    background:linear-gradient(135deg,var(--coral-wash),var(--navy-wash));
+    display:grid;place-items:center;color:var(--navy-tint);position:relative;overflow:hidden;
+  }
+  .guide .photo span{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+  .guide .photo svg{width:46px;height:46px;stroke:var(--navy-tint);opacity:.5;fill:none;stroke-width:1.5}
+  .guide h3{margin-bottom:4px}
+  .guide .role{color:var(--coral-dark);font-weight:600;font-size:.92rem;margin-bottom:12px;display:block}
+  .guide p{font-size:.95rem}
+  .verify-tag{
+    display:inline-block;margin-top:12px;font-size:.68rem;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--coral-dark);background:var(--coral-wash);
+    padding:4px 10px;border-radius:6px;
+  }
+
+  /* Testimonials */
+  .voices{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .voices h2{color:#fff}
+  .voices .eyebrow{color:var(--coral)}
+  .voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:12px}
+  .voice{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+    border-radius:var(--radius);padding:32px 30px 28px;position:relative;
+    transition:transform .3s var(--ease),background .3s;
+  }
+  .voice:hover{transform:translateY(-5px);background:rgba(255,255,255,.08)}
+  .voice .qm{font-size:4.5rem;line-height:.5;color:var(--coral);font-weight:800;display:block;height:34px}
+  .voice blockquote{color:rgba(255,255,255,.9);font-size:1.02rem;line-height:1.6;margin:6px 0 22px}
+  .voice .who{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
+  .voice .who .name{font-weight:600;color:#fff;font-size:.98rem}
+  .voice .who .title{color:rgba(255,255,255,.6);font-size:.85rem}
+
+  /* Alumni */
+  .alumni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:14px}
+  .alum{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:border-color .25s,transform .25s var(--ease)}
+  .alum:hover{border-color:var(--coral-tint);transform:translateY(-3px)}
+  .alum .name{font-weight:600;color:var(--navy);font-size:.98rem}
+  .alum .title{color:var(--muted);font-size:.82rem;line-height:1.4;margin-top:2px}
+  .cohort-label{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--navy);font-size:1.1rem;margin:8px 0 4px;
+  }
+  .cohort-label::before{content:"";width:26px;height:3px;background:var(--coral);border-radius:2px}
+  .alumni-note{margin-top:32px;font-size:1.05rem;color:var(--navy-tint);font-weight:500}
+
+  /* Investment */
+  .invest-sec{background:var(--coral-wash)}
+  .invest{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .invest .panel{background:var(--white);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .price{font-size:3.2rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
+  .price small{display:block;font-size:.9rem;font-weight:600;color:var(--coral-dark);letter-spacing:.02em;margin-top:8px}
+  .invest ul{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:14px}
+  .invest li{display:flex;gap:12px;font-size:.98rem;color:var(--navy-tint);line-height:1.5}
+  .invest li svg{width:22px;height:22px;flex:none;stroke:var(--coral);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+  .invest .fineprint{margin-top:22px;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+  /* Apply */
+  .apply-sec{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+  .apply-sec .wrap{position:relative;z-index:2}
+  .apply-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .apply-sec h2{color:#fff;margin:16px 0 18px}
+  .apply-sec .eyebrow{color:var(--coral)}
+  .apply-intro p{color:rgba(255,255,255,.72);font-size:1.05rem}
+  .apply-intro .open-date{
+    display:inline-block;margin-top:22px;background:rgba(226,122,80,.14);color:var(--coral);
+    border:1px solid rgba(226,122,80,.35);border-radius:999px;padding:10px 20px;font-weight:600;font-size:.92rem;
+  }
+  .form-card{background:var(--white);border-radius:var(--radius-lg);padding:38px;box-shadow:0 30px 70px -30px rgba(0,0,0,.5)}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:7px;letter-spacing:.01em}
+  .field input,.field textarea{
+    width:100%;font-family:inherit;font-size:.98rem;color:var(--navy);
+    padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--ground);
+    transition:border-color .2s,background .2s;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--coral);background:#fff;outline:none}
+  .field textarea{resize:vertical;min-height:110px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-card .btn-primary{width:100%;justify-content:center;margin-top:6px}
+  .form-note{margin-top:18px;font-size:.82rem;color:var(--muted);text-align:center;line-height:1.5}
+  .form-note a{color:var(--coral-dark);font-weight:600;border-bottom:1px solid var(--coral-tint)}
+  .apply-sec .ag1{position:absolute;width:480px;height:480px;border:2px solid rgba(226,122,80,.12);border-radius:50%;bottom:-220px;left:-140px;z-index:1}
+
+  /* Footer */
+  footer.site{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:48px 0;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  footer .lockup .cwa{color:var(--coral)}
+  footer .lockup .ef{color:rgba(255,255,255,.8)}
+  footer .tag{font-size:.85rem}
+  footer nav{display:flex;gap:26px;flex-wrap:wrap}
+  footer nav a{font-size:.9rem;transition:color .2s}
+  footer nav a:hover{color:var(--coral)}
+
+  /* Scroll reveal — only hide when JS is confirmed running (progressive enhancement) */
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  /* Timeline items fade in place — no vertical slide, so staggered cards never overlap their neighbours */
+  .js .tl-item.reveal{transform:none;transition:opacity .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+  .reveal.d4{transition-delay:.32s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .btn,.card,.voice,.alum{transition:none}
+  }
+
+  /* Responsive */
+  @media (max-width:900px){
+    .apply-grid{grid-template-columns:1fr;gap:32px}
+    .guides{grid-template-columns:1fr}
+    .invest{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr;gap:0}
+    .timeline::before{display:none}
+    .tl-item{display:grid;grid-template-columns:54px 1fr;gap:20px;text-align:left;padding:0 0 28px;position:relative}
+    .tl-item::after{content:"";position:absolute;left:26px;top:54px;bottom:-6px;width:2px;background:var(--coral-tint)}
+    .tl-item:last-child::after{display:none}
+    .tl-node{margin:0}
+  }
+  @media (max-width:640px){
+    section{padding:68px 0}
+    .hero{padding:56px 0 64px}
+    body{font-size:17px}
+    .card.feature-wide{flex-direction:column;gap:16px}
+    .form-row{grid-template-columns:1fr}
+    .guide{flex-direction:column}
+    .invest .panel{padding:30px 26px}
+    .logo-img{height:40px}
+    footer .wrap{flex-direction:column;align-items:flex-start;gap:20px}
+    .hero-cta{gap:12px}
+    .hero-cta .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<script>document.documentElement.className+=' js';</script>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap">
+    <a class="lockup" href="#top" aria-label="CWA Executive Fellowship home">
+      <img class="logo-img" src="assets/logo.png" alt="CWA Executive Fellowship">
+    </a>
+    <a class="btn btn-primary" href="#apply">Apply <span class="btn-arrow" aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="geo g1" aria-hidden="true"></div>
+  <div class="geo g2 geo-ring" aria-hidden="true"></div>
+  <div class="geo g3" aria-hidden="true"></div>
+  <div class="geo g4" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">A program of the California Workforce Association</span>
+    <h1 id="hero-h" class="reveal d1">Where California's<br>workforce leaders<br>are <span class="hl">made</span>.</h1>
+    <p class="lead reveal d2">A year-long, cohort-based fellowship for new and established workforce executives — led by CWA Executive Director Adam Peck and Tim Aldinger.</p>
+    <div class="hero-cta reveal d3">
+      <a class="btn btn-primary" href="#apply">Apply for the 2027 Cohort <span class="btn-arrow" aria-hidden="true">→</span></a>
+      <a class="linkarrow" href="#experience">Explore the experience <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="markers reveal d4">
+      <span class="marker"><span class="dot" aria-hidden="true"></span>January – September</span>
+      <span class="marker"><span class="dot" aria-hidden="true"></span>Cohort limited to ~20 fellows</span>
+      <span class="marker"><span class="dot" aria-hidden="true"></span>Members-only</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. THE DUAL IMPERATIVE ============ -->
+<section class="imperative" aria-labelledby="imp-h">
+  <div class="geo ig1" aria-hidden="true"></div>
+  <div class="geo ig2" aria-hidden="true"></div>
+  <div class="geo ig3" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="quote-mark reveal" aria-hidden="true">“</span>
+    <span class="eyebrow light reveal">The dual imperative</span>
+    <h2 id="imp-h" class="reveal d1">The modern workforce executive holds two jobs at once: <span class="hl">rigorous public stewardship</span> and <span class="hl">visionary systems leadership</span>.</h2>
+    <p class="reveal d2">One demands accountability, compliance, and the careful handling of public trust. The other demands vision — the ability to align partners you don't control and move whole regions forward. This fellowship is built for leaders who refuse to choose between them.</p>
+  </div>
+</section>
+
+<!-- ============ 3. WHAT THE FELLOWSHIP EQUIPS YOU TO DO ============ -->
+<section aria-labelledby="equip-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What you'll be equipped to do</span>
+      <h2 id="equip-h">Five capabilities that define an executive.</h2>
+      <p>You'll leave with more than ideas. You'll leave with the judgment, relationships, and playbooks to lead at the top of your organization.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+        <h3>Master board governance</h3>
+        <p>Build a powerful, trusting partnership with your Board Chair — and learn to govern with clarity, not just comply.</p>
+      </div>
+      <div class="card reveal d1">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Lead with fiscal &amp; performance excellence</h3>
+        <p>Turn compliance into a strategic tool. Use fiscal discipline and performance data to steer, not just to survive an audit.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M9 6h6M6 9v6a3 3 0 0 0 3 3h6"/></svg></div>
+        <h3>Align complex systems</h3>
+        <p>Lead partners you don't directly manage. Move coalitions of agencies, colleges, and employers toward shared goals.</p>
+      </div>
+      <div class="card reveal d3">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Drive regional strategy</h3>
+        <p>Align workforce development with economic development to shape local and regional strategies that actually take hold.</p>
+      </div>
+      <div class="card reveal d4">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div>
+        <h3>Gain an elite peer network</h3>
+        <p>Join a trusted circle of fellow executives for candid support, shared best practices, and a phone list you'll use for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. THE EXPERIENCE — TIMELINE ============ -->
+<section class="timeline-sec" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The experience</span>
+      <h2 id="exp-h">A year in four sessions.</h2>
+      <p>Four in-person gatherings across California anchor the year. Between them, the real work happens — in your own organization, with your cohort.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-node" aria-hidden="true">1</div>
+        <div class="tl-card">
+          <span class="tl-when">January · Sacramento</span>
+          <h3>Foundation</h3>
+          <p>A full-day foundation session at the Foundation for California Community Colleges to set the frameworks for the year.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal d1">
+        <div class="tl-node" aria-hidden="true">2</div>
+        <div class="tl-card">
+          <span class="tl-when">April · Irvine</span>
+          <h3>Deep Practice</h3>
+          <p>Two half-days following WORKCON — applying governance and fiscal frameworks to real cases.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal d2">
+        <div class="tl-node" aria-hidden="true">3</div>
+        <div class="tl-card">
+          <span class="tl-when">July</span>
+          <h3>Working Session</h3>
+          <p>A full-day working session to pressure-test capstone projects and sharpen your systems-leadership approach.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal d3">
+        <div class="tl-node" aria-hidden="true">4</div>
+        <div class="tl-card">
+          <span class="tl-when">September · Monterey</span>
+          <h3>Capstone</h3>
+          <p>Capstone Presentations, connected to the Meeting of the Minds conference — your year, delivered to your peers.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tl-note reveal">
+      <p><strong style="color:var(--navy)">Between sessions,</strong> fellows apply the frameworks inside their own organizations and stay connected with the cohort — turning ideas into practice, and colleagues into a network.</p>
+    </div>
+    <!-- The 2026 schedule is shown as an illustrative model of the annual rhythm; specific dates/venues vary by cohort. -->
+    <p class="illustrative reveal">Schedule shown reflects the 2026 cohort and is illustrative of the annual rhythm. Specific dates and venues are confirmed each year.</p>
+  </div>
+</section>
+
+<!-- ============ 5. YOUR GUIDES ============ -->
+<section aria-labelledby="guides-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Your guides</span>
+      <h2 id="guides-h">Led by leaders who've done the work.</h2>
+      <p>You'll learn alongside faculty who know California's workforce system from the inside — and who lead it today.</p>
+    </div>
+    <div class="guides">
+      <!-- VERIFY BIO -->
+      <div class="guide reveal">
+        <div class="photo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </div>
+        <div>
+          <h3>Adam Peck</h3>
+          <span class="role">Executive Director, California Workforce Association</span>
+          <!-- DRAFT BIO — CWA to verify/replace -->
+          <p>Adam has spent his career leading workforce boards and shaping the systems that connect Californians to good jobs. As Executive Director of CWA, he sits at the intersection of state policy and local practice — and brings fellows a rare, statewide vantage point on where the field is heading. He'll help you see your board not as a constraint, but as your most powerful lever.</p>
+          <span class="verify-tag">Draft bio — CWA to verify</span>
+        </div>
+      </div>
+      <!-- VERIFY BIO -->
+      <div class="guide reveal d1">
+        <div class="photo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </div>
+        <div>
+          <h3>Tim Aldinger</h3>
+          <span class="role">Fellowship Faculty &amp; Facilitator</span>
+          <!-- DRAFT BIO — CWA to verify/replace -->
+          <p>Tim brings deep workforce development leadership and years of guiding executives through the toughest parts of the job. A skilled facilitator, he creates the kind of candid, high-trust room where real learning happens. Fellows leave his sessions with practical frameworks — and the confidence to use them Monday morning.</p>
+          <span class="verify-tag">Draft bio — CWA to verify</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. VOICES FROM THE FELLOWSHIP ============ -->
+<section class="voices" aria-labelledby="voices-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voices from the fellowship</span>
+      <h2 id="voices-h">What fellows carry forward.</h2>
+    </div>
+    <div class="voice-grid">
+      <!-- PLACEHOLDER TESTIMONIAL -->
+      <div class="voice reveal">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>I came in thinking my Board Chair and I were on the same page. The fellowship showed me we weren't — and gave me the language to build a real partnership. That relationship is the strongest it's ever been.</blockquote>
+        <div class="who"><span class="name">Maria Delgado</span><span class="title">Executive Director, Central Valley Workforce Development Board</span></div>
+      </div>
+      <!-- PLACEHOLDER TESTIMONIAL -->
+      <div class="voice reveal d1">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>The peer network is the part I underestimated. There are seven other directors I now text before I make a big decision. You can't buy that kind of counsel — you earn it in a room like this.</blockquote>
+        <div class="who"><span class="name">James Okafor</span><span class="title">CEO, Inland Empire Workforce Board</span></div>
+      </div>
+      <!-- PLACEHOLDER TESTIMONIAL -->
+      <div class="voice reveal d2">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>My capstone became our board's actual three-year strategy. Presenting it in Monterey, in front of peers who'd pushed me all year, was the proudest moment of my career so far.</blockquote>
+        <div class="who"><span class="name">Sandra Whitehorse</span><span class="title">Executive Director, North State Workforce Development Board</span></div>
+      </div>
+      <!-- PLACEHOLDER TESTIMONIAL -->
+      <div class="voice reveal d3">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>I stopped treating compliance as paperwork and started using it as strategy. That shift alone changed how my whole leadership team operates.</blockquote>
+        <div class="who"><span class="name">David Ramirez</span><span class="title">Deputy Director, Bay Area Regional Workforce Board</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FELLOWSHIP ALUMNI ============ -->
+<section aria-labelledby="alumni-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Fellowship alumni</span>
+      <h2 id="alumni-h">A growing statewide network.</h2>
+    </div>
+    <span class="cohort-label reveal">2026 Cohort</span>
+    <!-- PLACEHOLDER ALUMNI — replace all names/titles with verified fellows -->
+    <div class="alumni-grid">
+      <div class="alum reveal"><div class="name">Elena Marquez</div><div class="title">Executive Director, Sacramento Employment &amp; Training Agency</div></div>
+      <div class="alum reveal"><div class="name">Marcus Bell</div><div class="title">CEO, San Diego Workforce Partnership</div></div>
+      <div class="alum reveal"><div class="name">Priya Nair</div><div class="title">Executive Director, Santa Clara County Workforce Board</div></div>
+      <div class="alum reveal"><div class="name">Robert Tanaka</div><div class="title">Director, Kern County Workforce Development Board</div></div>
+      <div class="alum reveal d1"><div class="name">Angela Foster</div><div class="title">Executive Director, Fresno Regional Workforce Board</div></div>
+      <div class="alum reveal d1"><div class="name">Luis Herrera</div><div class="title">Deputy Director, Los Angeles County WDACS</div></div>
+      <div class="alum reveal d1"><div class="name">Deborah Klein</div><div class="title">CEO, Sonoma County Workforce Investment Board</div></div>
+      <div class="alum reveal d1"><div class="name">Terrence Wallace</div><div class="title">Executive Director, Stanislaus County Workforce Board</div></div>
+      <div class="alum reveal d2"><div class="name">Grace Yamamoto</div><div class="title">Director, Contra Costa Workforce Development Board</div></div>
+      <div class="alum reveal d2"><div class="name">Omar Haddad</div><div class="title">Executive Director, Riverside County Workforce Board</div></div>
+      <div class="alum reveal d2"><div class="name">Nicole Brooks</div><div class="title">CEO, Golden Sierra Job Training Agency</div></div>
+      <div class="alum reveal d2"><div class="name">Victor Salazar</div><div class="title">Executive Director, Imperial County Workforce Board</div></div>
+      <div class="alum reveal d3"><div class="name">Hannah Cho</div><div class="title">Director, San Bernardino County Workforce Board</div></div>
+      <div class="alum reveal d3"><div class="name">Andre Jefferson</div><div class="title">Executive Director, Alameda County Workforce Board</div></div>
+      <div class="alum reveal d3"><div class="name">Rebecca Lindqvist</div><div class="title">CEO, Ventura County Workforce Development Board</div></div>
+      <div class="alum reveal d3"><div class="name">Daniel Ortiz</div><div class="title">Deputy Director, Orange County Workforce &amp; Economic Dev.</div></div>
+    </div>
+    <p class="alumni-note reveal">Fellows join a growing statewide network of workforce executives.</p>
+  </div>
+</section>
+
+<!-- ============ 8. INVESTMENT & EXPECTATIONS ============ -->
+<section class="invest-sec" aria-labelledby="invest-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Investment &amp; expectations</span>
+      <h2 id="invest-h">A serious commitment — by design.</h2>
+    </div>
+    <div class="invest">
+      <div class="panel reveal">
+        <div class="price">$2,950 <small>Program fee · CWA members only</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Discounted registration for the Meeting of the Minds conference.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Standing invitations to CWA's Quarterly Board Meetings.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>A full year of faculty access and cohort membership.</span></li>
+        </ul>
+        <p class="fineprint">The program fee does not include travel, lodging, or parking for in-person sessions.</p>
+      </div>
+      <div class="panel reveal d1">
+        <h3 style="margin-bottom:20px">What's expected of fellows</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong style="color:var(--navy)">Show up.</strong> Attendance at all four in-person sessions across the year.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong style="color:var(--navy)">Stay engaged.</strong> Active participation with the cohort between sessions.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong style="color:var(--navy)">Deliver.</strong> A capstone presentation that puts the year to work in your organization.</span></li>
+        </ul>
+        <p class="fineprint">This is a commitment — and that's the point. The fellowship is only as strong as the leaders who fully show up for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. APPLY ============ -->
+<section class="apply-sec" id="apply" aria-labelledby="apply-h">
+  <div class="geo ag1" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="apply-grid">
+      <div class="apply-intro reveal">
+        <span class="eyebrow">Apply</span>
+        <h2 id="apply-h">Join the 2027 cohort.</h2>
+        <p>Applications for the 2027 cohort open <strong style="color:#fff">[DATE — CWA to confirm]</strong>. Cohorts are limited to roughly 20 fellows, and admission is competitive.</p>
+        <span class="open-date">Applications open [DATE]</span>
+      </div>
+      <!-- PLACEHOLDER FORM: connect to CWA's form/CRM. This form is non-functional. -->
+      <div class="form-card reveal d1">
+        <form onsubmit="event.preventDefault();this.querySelector('.form-note').textContent='This is a preview form — connect it to CWA’s application system.';">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Full name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jane Rivera">
+            </div>
+            <div class="field">
+              <label for="f-title">Title</label>
+              <input id="f-title" name="title" type="text" autocomplete="organization-title" placeholder="Executive Director">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-org">Organization</label>
+            <input id="f-org" name="organization" type="text" autocomplete="organization" placeholder="County Workforce Development Board">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@organization.org">
+          </div>
+          <div class="field">
+            <label for="f-why">Why the Fellowship, why now?</label>
+            <textarea id="f-why" name="why" placeholder="Tell us what you're leading through, and what you hope to carry out of the year."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit application <span class="btn-arrow" aria-hidden="true">→</span></button>
+          <p class="form-note">Open to CWA members. Questions? Email <a href="mailto:fellowship@calworkforce.org">fellowship@calworkforce.org</a>. <!-- contact email placeholder --></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="lockup">
+        <span class="cwa">CWA</span>
+        <span class="ef">executive fellowship</span>
+      </div>
+      <p class="tag" style="margin-top:10px">A program of the California Workforce Association.</p>
+    </div>
+    <nav aria-label="Footer">
+      <!-- placeholder links -->
+      <a href="#">CWA Home</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Gentle scroll-reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
