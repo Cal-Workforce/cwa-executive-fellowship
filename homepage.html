@@ -57,6 +57,17 @@
   .nav a.navlink::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--coral);transition:right .25s var(--ease)}
   .nav a.navlink:hover::after{right:0}
   .site .btn{padding:11px 22px;font-size:.9rem}
+  /* Dropdown submenu */
+  .nav-item{position:relative;display:flex;align-items:center}
+  .subtoggle{font-family:inherit;background:none;border:none;cursor:pointer;font-size:.95rem;font-weight:500;color:var(--navy);display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .subtoggle:hover,.has-sub:focus-within .subtoggle{color:var(--coral-dark)}
+  .subtoggle .caret{font-size:.66rem;color:var(--coral-dark);transition:transform .2s var(--ease)}
+  .has-sub:hover .caret,.subtoggle[aria-expanded="true"] .caret{transform:rotate(180deg)}
+  .submenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);min-width:210px;background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease);z-index:70}
+  .submenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .has-sub:hover .submenu,.has-sub:focus-within .submenu,.submenu.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .submenu a{display:block;padding:11px 14px;border-radius:9px;font-size:.92rem;font-weight:500;color:var(--navy);transition:background .18s,color .18s}
+  .submenu a:hover{background:var(--coral-wash);color:var(--coral-dark)}
   .navtoggle{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
   .navtoggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:2px}
   @media (max-width:860px){
@@ -66,6 +77,13 @@
     .nav a.navlink::after{display:none}
     .nav .btn{margin-top:14px;justify-content:center}
     .navtoggle{display:block}
+    /* Submenu becomes an accordion */
+    .nav-item{display:block}
+    .subtoggle{width:100%;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem;font-weight:500}
+    .submenu{position:static;transform:none;opacity:1;visibility:hidden;display:none;min-width:0;background:transparent;border:none;box-shadow:none;padding:0 0 0 14px}
+    .submenu::before{display:none}
+    .submenu.open{display:block;visibility:visible}
+    .submenu a{padding:13px 0;border-bottom:1px solid var(--line)}
   }
 
   /* Hero */
@@ -194,12 +212,19 @@
     </a>
     <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
-      <!-- PLACEHOLDER NAV: final IA to be confirmed -->
-      <a class="navlink" href="#who">Who We Are</a>
-      <a class="navlink" href="#news">News &amp; Events</a>
-      <a class="navlink" href="#">Our Work</a>
-      <a class="navlink" href="#">Members</a>
-      <a class="btn btn-primary" href="#member">Become a Member <span class="btn-arrow" aria-hidden="true">→</span></a>
+      <!-- PLACEHOLDER NAV: links point to pages to be built -->
+      <a class="navlink" href="#">About Us</a>
+      <a class="navlink" href="#">Advocacy</a>
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-members">Our Members <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-members" role="menu" aria-label="Our Members">
+          <a role="menuitem" href="#">Boards</a>
+          <a role="menuitem" href="#">Affiliates</a>
+        </div>
+      </div>
+      <a class="navlink" href="#">Resources</a>
+      <!-- Become a Member → dedicated membership page (to be built) -->
+      <a class="btn btn-primary" href="become-a-member.html">Become a Member <span class="btn-arrow" aria-hidden="true">→</span></a>
     </nav>
   </div>
 </header>
@@ -351,8 +376,8 @@
     </div>
     <nav aria-label="Footer">
       <!-- PLACEHOLDER LINKS -->
-      <div class="col"><h4>Explore</h4><a href="#who">Who We Are</a><a href="#news">News &amp; Events</a><a href="#">Our Work</a></div>
-      <div class="col"><h4>Members</h4><a href="#member">Become a Member</a><a href="#">Member Login</a><a href="#">Executive Fellowship</a></div>
+      <div class="col"><h4>Explore</h4><a href="#">About Us</a><a href="#">Advocacy</a><a href="#">Resources</a></div>
+      <div class="col"><h4>Our Members</h4><a href="#">Boards</a><a href="#">Affiliates</a><a href="become-a-member.html">Become a Member</a></div>
       <div class="col"><h4>Connect</h4><a href="#">Contact</a><a href="#">Newsletter</a><a href="#">Privacy</a></div>
     </nav>
   </div>
@@ -373,6 +398,19 @@
     if(!t)return;
     t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
     n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  })();
+
+  // Dropdown submenus (click/tap toggle; hover handled by CSS on desktop)
+  (function(){
+    var items=[].slice.call(document.querySelectorAll('.has-sub'));
+    function closeAll(except){items.forEach(function(it){if(it!==except){it.querySelector('.submenu').classList.remove('open');it.querySelector('.subtoggle').setAttribute('aria-expanded','false');}});}
+    items.forEach(function(it){
+      var btn=it.querySelector('.subtoggle'),menu=it.querySelector('.submenu');
+      if(!btn||!menu)return;
+      btn.addEventListener('click',function(e){e.stopPropagation();var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open);closeAll(it);});
+    });
+    document.addEventListener('click',function(e){if(!e.target.closest('.has-sub'))closeAll(null);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
   })();
 
   // Rotator / carousel
