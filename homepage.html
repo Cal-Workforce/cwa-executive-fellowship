@@ -219,7 +219,14 @@
     <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
       <!-- PLACEHOLDER NAV: links point to pages to be built -->
-      <a class="navlink" href="#">About Us</a>
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About Us <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-about" role="menu" aria-label="About Us">
+          <a role="menuitem" href="#">Our Vision</a>
+          <a role="menuitem" href="#">Our Team</a>
+          <a role="menuitem" href="#">Contact Us</a>
+        </div>
+      </div>
       <a class="navlink" href="#">Advocacy</a>
       <div class="nav-item has-sub">
         <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-members">Our Members <span class="caret" aria-hidden="true">▾</span></button>
