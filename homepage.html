@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>California Workforce Association</title>
+<meta name="description" content="The California Workforce Association is the champion of the state's 45 local workforce boards — amplifying their voice, equipping them to act, and connecting them to one another.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E27A50; --coral-dark:#C9623B; --coral-tint:#F6E4DB; --coral-wash:#FBF0EA;
+    --navy:#1A375D; --navy-deep:#122842; --navy-tint:#3B5578; --navy-wash:#EAEEF3;
+    --ground:#FAF7F3; --white:#FFFFFF; --ink:#1A375D; --muted:#5B6A7D; --line:#E7DFD6;
+    --shadow:0 18px 48px -24px rgba(26,55,93,.28);
+    --shadow-sm:0 8px 24px -16px rgba(26,55,93,.35);
+    --radius:20px; --radius-lg:28px; --maxw:1100px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--ground);color:var(--ink);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;width:100%}
+  section{padding:96px 0}
+
+  h1,h2,h3{line-height:1.08;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+  h1{font-size:clamp(2.6rem,6.5vw,4.6rem);font-weight:800}
+  h2{font-size:clamp(2rem,4.2vw,3rem)}
+  h3{font-size:1.25rem;letter-spacing:-.01em}
+  p{color:var(--muted)}
+  .lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--navy-tint);font-weight:400}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-dark);display:inline-block}
+  .eyebrow.light{color:var(--coral)}
+  .hl{color:var(--coral)}
+
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:inherit;font-size:1rem;font-weight:600;letter-spacing:-.01em;padding:16px 30px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),color .2s;line-height:1}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 12px 30px -12px rgba(226,122,80,.7)}
+  .btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--coral);color:var(--coral-dark);transform:translateY(-2px)}
+  .btn-arrow{transition:transform .25s var(--ease)}
+  .btn:hover .btn-arrow{transform:translateX(4px)}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:8px}
+  .linkarrow{display:inline-flex;align-items:center;gap:.4em;font-weight:600;color:var(--navy);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;padding-bottom:2px}
+  .linkarrow:hover{color:var(--coral-dark);border-color:var(--coral)}
+
+  /* Header + nav */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(250,247,243,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,223,214,.8)}
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+  .logo-img{height:46px;width:auto;display:block}
+  .nav{display:flex;align-items:center;gap:30px}
+  .nav a.navlink{font-size:.95rem;font-weight:500;color:var(--navy);transition:color .2s;position:relative}
+  .nav a.navlink:hover{color:var(--coral-dark)}
+  .nav a.navlink::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--coral);transition:right .25s var(--ease)}
+  .nav a.navlink:hover::after{right:0}
+  .site .btn{padding:11px 22px;font-size:.9rem}
+  .navtoggle{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
+  .navtoggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:2px}
+  @media (max-width:860px){
+    .nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--ground);border-bottom:1px solid var(--line);padding:8px 24px 20px;transform:translateY(-140%);transition:transform .3s var(--ease);box-shadow:var(--shadow)}
+    .nav.open{transform:translateY(0)}
+    .nav a.navlink{padding:14px 0;border-bottom:1px solid var(--line)}
+    .nav a.navlink::after{display:none}
+    .nav .btn{margin-top:14px;justify-content:center}
+    .navtoggle{display:block}
+  }
+
+  /* Hero */
+  .hero{position:relative;padding:92px 0 96px;overflow:hidden}
+  .hero .wrap{position:relative;z-index:2;max-width:920px}
+  .hero h1{margin:22px 0 24px;max-width:14ch}
+  .hero .lead{max-width:660px;margin-bottom:36px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:44px}
+  .markers{display:flex;flex-wrap:wrap;gap:14px}
+  .marker{display:inline-flex;align-items:center;gap:9px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:.9rem;font-weight:500;color:var(--navy);box-shadow:var(--shadow-sm)}
+  .marker .dot{width:9px;height:9px;border-radius:50%;background:var(--coral);flex:none}
+  .geo{position:absolute;border-radius:50%;z-index:1;pointer-events:none}
+  .hero .g1{width:440px;height:440px;top:-150px;right:-130px;background:var(--coral-wash)}
+  .hero .g2{width:190px;height:190px;bottom:26px;right:13%;border:2px solid var(--coral-tint)}
+  .hero .g3{width:14px;height:14px;top:24%;right:7%;background:var(--coral)}
+  .hero .g4{width:10px;height:10px;bottom:30%;left:2%;background:var(--navy)}
+
+  /* Rotator / news + events */
+  .rotator-sec{background:var(--navy-wash)}
+  .rot-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap}
+  .rot-head .sec-head{margin-bottom:0;max-width:620px}
+  .sec-head h2{margin:14px 0 12px}
+  .sec-head p{font-size:1.08rem}
+  .rot-controls{display:flex;gap:12px}
+  .rot-btn{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--navy);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,color .2s,transform .2s var(--ease),background .2s}
+  .rot-btn:hover{border-color:var(--coral);color:var(--coral-dark);transform:translateY(-2px)}
+  .rot-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .rot-viewport{overflow:hidden}
+  .rot-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 4px 14px;scrollbar-width:none}
+  .rot-track::-webkit-scrollbar{display:none}
+  .rot-card{scroll-snap-align:start;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+  .rot-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--coral-tint)}
+  .rot-thumb{height:150px;background:linear-gradient(135deg,var(--coral-wash),var(--navy-wash));position:relative}
+  .rot-thumb .chip{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;background:var(--white);border-radius:999px;padding:6px 13px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-dark);box-shadow:var(--shadow-sm)}
+  .rot-thumb .chip.event{color:#fff;background:var(--coral)}
+  .rot-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .rot-date{font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-bottom:8px}
+  .rot-card h3{font-size:1.12rem;margin-bottom:9px}
+  .rot-card p{font-size:.92rem;flex:1}
+  .rot-card .linkarrow{margin-top:16px;font-size:.9rem}
+  .rot-dots{display:flex;gap:9px;justify-content:center;margin-top:26px}
+  .rot-dot{width:9px;height:9px;border-radius:50%;background:var(--coral-tint);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s}
+  .rot-dot[aria-current="true"]{background:var(--coral);transform:scale(1.25)}
+
+  /* Who we are — pillars */
+  .sec-head{max-width:680px;margin-bottom:56px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+  .pillar:hover{transform:translateY(-6px);box-shadow:0 26px 60px -28px rgba(26,55,93,.4);border-color:var(--coral-tint)}
+  .pillar .ico{width:56px;height:56px;border-radius:15px;background:var(--coral-wash);display:grid;place-items:center;margin-bottom:20px}
+  .pillar .ico svg{width:29px;height:29px;stroke:var(--coral-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .pillar h3{margin-bottom:10px}
+  .pillar .k{display:block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-dark);margin-bottom:6px}
+  .pillar p{font-size:.97rem}
+  .statstrip{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+  .stat{flex:1;min-width:180px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:28px 26px}
+  .stat .num{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
+  .stat .num .hl{color:var(--coral)}
+  .stat .lbl{color:rgba(255,255,255,.72);font-size:.92rem;margin-top:8px}
+
+  /* Become a member */
+  .member-sec{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+  .member-sec .wrap{position:relative;z-index:2}
+  .member-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .member-sec h2{color:#fff;margin:16px 0 18px}
+  .member-sec .eyebrow{color:var(--coral)}
+  .member-intro p{color:rgba(255,255,255,.74);font-size:1.08rem}
+  .member-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+  .member-cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+  .member-cta .btn-ghost:hover{border-color:var(--coral);color:var(--coral)}
+  .benefits{list-style:none;display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:34px}
+  .benefits li{display:flex;gap:14px;color:rgba(255,255,255,.9);font-size:1rem;line-height:1.5}
+  .benefits li svg{width:24px;height:24px;flex:none;stroke:var(--coral);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+  .benefits li strong{color:#fff;font-weight:600}
+  .member-note{margin-top:22px;font-size:.85rem;color:rgba(255,255,255,.55)}
+  .member-sec .mg1{position:absolute;width:520px;height:520px;border:2px solid rgba(226,122,80,.14);border-radius:50%;bottom:-240px;left:-150px;z-index:1}
+  .member-sec .mg2{position:absolute;width:16px;height:16px;background:var(--coral);border-radius:50%;top:22%;right:8%;z-index:1}
+
+  /* Footer */
+  footer.site{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:52px 0;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between}
+  .foot-lockup .cwa{font-weight:800;font-size:1.35rem;color:var(--coral);letter-spacing:.02em}
+  .foot-lockup .ef{display:block;font-weight:500;font-size:.82rem;color:rgba(255,255,255,.8);text-transform:lowercase;margin-top:3px}
+  footer .tag{font-size:.85rem;margin-top:12px;max-width:260px}
+  footer nav{display:flex;gap:44px;flex-wrap:wrap}
+  footer .col h4{color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+  footer .col a{display:block;font-size:.92rem;padding:4px 0;transition:color .2s}
+  footer .col a:hover{color:var(--coral)}
+
+  /* Scroll reveal (progressive enhancement) */
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .btn,.pillar,.rot-card,.rot-track{transition:none}
+    .rot-track{scroll-behavior:auto}
+  }
+
+  @media (max-width:900px){
+    .member-grid{grid-template-columns:1fr;gap:32px}
+    .rot-track{grid-auto-columns:calc((100% - 24px)/2)}
+  }
+  @media (max-width:640px){
+    section{padding:68px 0}
+    .hero{padding:60px 0 64px}
+    body{font-size:17px}
+    .logo-img{height:40px}
+    .rot-track{grid-auto-columns:86%}
+    .rot-head{align-items:flex-start}
+    .hero-cta .btn{width:100%;justify-content:center}
+    footer nav{gap:28px}
+  }
+</style>
+</head>
+<script>document.documentElement.className+=' js';</script>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap">
+    <a class="lockup" href="#top" aria-label="California Workforce Association home">
+      <img class="logo-img" src="assets/logo.png" alt="California Workforce Association">
+    </a>
+    <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <!-- PLACEHOLDER NAV: final IA to be confirmed -->
+      <a class="navlink" href="#who">Who We Are</a>
+      <a class="navlink" href="#news">News &amp; Events</a>
+      <a class="navlink" href="#">Our Work</a>
+      <a class="navlink" href="#">Members</a>
+      <a class="btn btn-primary" href="#member">Become a Member <span class="btn-arrow" aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+<span id="top"></span>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="geo g1" aria-hidden="true"></div>
+  <div class="geo g2" aria-hidden="true"></div>
+  <div class="geo g3" aria-hidden="true"></div>
+  <div class="geo g4" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">The California Workforce Association</span>
+    <!-- HERO TITLE — recommended. Swap in an alternate below if preferred:
+         B) We believe every community can put its people to work.
+         C) When local boards are strong, California works.
+         D) Every Californian, connected to opportunity. Every community, stronger for it. -->
+    <h1 id="hero-h" class="reveal d1">We believe in the power of local leadership to build a <span class="hl">stronger California</span>.</h1>
+    <p class="lead reveal d2">The California Workforce Association is the champion of the state's 45 local workforce boards — amplifying their voice, equipping them to act, and connecting them to one another, so every community can put its people to work.</p>
+    <div class="hero-cta reveal d3">
+      <a class="btn btn-primary" href="#member">Become a member <span class="btn-arrow" aria-hidden="true">→</span></a>
+      <a class="linkarrow" href="#who">Explore our work <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="markers reveal d3">
+      <span class="marker"><span class="dot" aria-hidden="true"></span>45 local workforce boards</span>
+      <span class="marker"><span class="dot" aria-hidden="true"></span>One statewide voice</span>
+      <span class="marker"><span class="dot" aria-hidden="true"></span>Amplify · Equip · Connect</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ROTATOR — WORKFORCE NEWS & EVENTS ============ -->
+<section class="rotator-sec" id="news" aria-labelledby="news-h" aria-roledescription="carousel">
+  <div class="wrap">
+    <div class="rot-head">
+      <div class="sec-head reveal">
+        <span class="eyebrow">News &amp; events</span>
+        <h2 id="news-h">What's happening across the field</h2>
+        <p>Policy that matters, moments to gather, and news from the boards moving California's workforce forward.</p>
+      </div>
+      <div class="rot-controls reveal d1">
+        <button class="rot-btn" id="rotPrev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="rot-btn" id="rotNext" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="rot-viewport reveal">
+      <div class="rot-track" id="rotTrack" tabindex="0" aria-live="polite" aria-label="Workforce news and events">
+        <!-- PLACEHOLDER CONTENT: connect to CWA news/events feed or CMS -->
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip event">Event</span></div>
+          <div class="rot-body"><div class="rot-date">September 2026 · Monterey</div><h3>Meeting of the Minds</h3><p>California's premier workforce gathering returns — three days of practice, policy, and the people driving the field.</p><a class="linkarrow" href="#">Register <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip">News</span></div>
+          <div class="rot-body"><div class="rot-date">August 2026</div><h3>CWA releases the 2026 statewide impact story</h3><p>A single, credible picture of what local boards delivered this year — and what the field needs next.</p><a class="linkarrow" href="#">Read more <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip event">Event</span></div>
+          <div class="rot-body"><div class="rot-date">January 2027</div><h3>Executive Fellowship — 2027 cohort opens</h3><p>Applications open for CWA's year-long leadership program for workforce executives.</p><a class="linkarrow" href="#">Learn more <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip">Policy</span></div>
+          <div class="rot-body"><div class="rot-date">July 2026</div><h3>Plain-language guidance: what the latest update means for boards</h3><p>We translate the newest federal change into what your board can act on this week.</p><a class="linkarrow" href="#">Read the brief <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip event">Event</span></div>
+          <div class="rot-body"><div class="rot-date">Quarterly</div><h3>Board Directors Roundtable</h3><p>A standing virtual table where directors — big or small, rural or urban — solve shared problems together.</p><a class="linkarrow" href="#">Join the next one <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="rot-card">
+          <div class="rot-thumb"><span class="chip">News</span></div>
+          <div class="rot-body"><div class="rot-date">June 2026</div><h3>New funding brokered to boards</h3><p>How CWA moved philanthropic and agency dollars to the boards ready to put them to work.</p><a class="linkarrow" href="#">See the story <span aria-hidden="true">→</span></a></div>
+        </article>
+      </div>
+    </div>
+    <div class="rot-dots" id="rotDots" role="tablist" aria-label="Slides"></div>
+  </div>
+</section>
+
+<!-- ============ 3. WHO WE ARE — DRIVING WORKFORCE INNOVATION ============ -->
+<section id="who" aria-labelledby="who-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Who we are</span>
+      <h2 id="who-h">Driving workforce innovation across California.</h2>
+      <p>We're the connective tissue of California's workforce system — carrying the field's voice outward and building its capacity inward, so 45 local boards can do their best work.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3zM3 11v3M11.5 9.4v6.7"/><path d="M7 15v3a2 2 0 0 0 2 2h1"/></svg></div>
+        <span class="k">Amplify</span>
+        <h3>We carry the field's voice.</h3>
+        <p>We bring our members' stories and needs to the people who shape policy and funding — so California's boards speak with one credible, coordinated voice, and decision-makers act on it.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.3L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-.7z"/></svg></div>
+        <span class="k">Equip</span>
+        <h3>We give boards what they need to act.</h3>
+        <p>We translate policy into plain-language action, move resources to where they're needed most, and build the capacity boards need to meet whatever comes next.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="18" cy="7" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 8.5l2.2 7M15.5 8.5l-2.2 7M9 7h6"/></svg></div>
+        <span class="k">Connect</span>
+        <h3>We bring the system together.</h3>
+        <p>We convene boards and partners — traditional and nontraditional alike — to learn from one another, solve shared problems, and shape what comes next. No board works alone.</p>
+      </div>
+    </div>
+    <!-- PLACEHOLDER STATS: CWA to verify figures -->
+    <div class="statstrip">
+      <div class="stat reveal"><div class="num"><span class="hl">45</span></div><div class="lbl">local workforce boards, one association</div></div>
+      <div class="stat reveal d1"><div class="num">58</div><div class="lbl">counties served across California</div></div>
+      <div class="stat reveal d2"><div class="num">1<span class="hl">M+</span></div><div class="lbl">Californians reached through our members each year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. BECOME A MEMBER ============ -->
+<section class="member-sec" id="member" aria-labelledby="member-h">
+  <div class="geo mg1" aria-hidden="true"></div>
+  <div class="geo mg2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="member-grid">
+      <div class="member-intro reveal">
+        <span class="eyebrow">Membership</span>
+        <h2 id="member-h">Add your board's voice.</h2>
+        <p>CWA is stronger with every board at the table — big or small, rural or urban. Join a statewide community built to amplify what you do, equip you for what's next, and connect you to peers who get it.</p>
+        <div class="member-cta">
+          <a class="btn btn-primary" href="#">Become a member <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#">Talk to our team</a>
+        </div>
+        <!-- PLACEHOLDER: eligibility + dues details for CWA to confirm -->
+        <p class="member-note">Open to California's local workforce boards and their partners. Contact us for dues and eligibility.</p>
+      </div>
+      <ul class="benefits reveal d1">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>A seat in a statewide coalition</strong> — your needs, carried to Sacramento, Washington, and philanthropy.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Policy, translated</strong> — plain-language guidance and rapid briefings when major change drops.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Access to resources</strong> — grant pass-through, shared grant-writing, and dollars brokered to the field.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Connection</strong> — conferences, roundtables, cohorts, and the Executive Fellowship.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="foot-lockup"><span class="cwa">CWA</span><span class="ef">california workforce association</span></div>
+      <p class="tag">The champion of California's local workforce boards.</p>
+    </div>
+    <nav aria-label="Footer">
+      <!-- PLACEHOLDER LINKS -->
+      <div class="col"><h4>Explore</h4><a href="#who">Who We Are</a><a href="#news">News &amp; Events</a><a href="#">Our Work</a></div>
+      <div class="col"><h4>Members</h4><a href="#member">Become a Member</a><a href="#">Member Login</a><a href="#">Executive Fellowship</a></div>
+      <div class="col"><h4>Connect</h4><a href="#">Contact</a><a href="#">Newsletter</a><a href="#">Privacy</a></div>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // Mobile nav
+  (function(){
+    var t=document.querySelector('.navtoggle'),n=document.getElementById('primary-nav');
+    if(!t)return;
+    t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  })();
+
+  // Rotator / carousel
+  (function(){
+    var track=document.getElementById('rotTrack');
+    if(!track)return;
+    var cards=[].slice.call(track.children),
+        prev=document.getElementById('rotPrev'),
+        next=document.getElementById('rotNext'),
+        dotsWrap=document.getElementById('rotDots'),
+        reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        timer=null;
+    function step(){var g=parseFloat(getComputedStyle(track).columnGap)||24;return cards[0].getBoundingClientRect().width+g;}
+    function perView(){return Math.max(1,Math.round(track.clientWidth/step()));}
+    function maxIndex(){return Math.max(0,cards.length-perView());}
+    function current(){return Math.round(track.scrollLeft/step());}
+    function go(i){i=Math.max(0,Math.min(i,maxIndex()));track.scrollTo({left:i*step(),behavior:reduce?'auto':'smooth'});}
+    // dots
+    cards.forEach(function(_,i){var b=document.createElement('button');b.className='rot-dot';b.setAttribute('role','tab');b.setAttribute('aria-label','Go to slide '+(i+1));b.addEventListener('click',function(){go(i);});dotsWrap.appendChild(b);});
+    var dots=[].slice.call(dotsWrap.children);
+    function sync(){var c=current();dots.forEach(function(d,i){d.setAttribute('aria-current',i===c?'true':'false');});}
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(sync);},{passive:true});
+    next.addEventListener('click',function(){go(current()>=maxIndex()?0:current()+1);});
+    prev.addEventListener('click',function(){go(current()<=0?maxIndex():current()-1);});
+    // autoplay
+    function play(){if(reduce)return;stop();timer=setInterval(function(){go(current()>=maxIndex()?0:current()+1);},5000);}
+    function stop(){if(timer){clearInterval(timer);timer=null;}}
+    ['mouseenter','focusin','pointerdown'].forEach(function(ev){track.addEventListener(ev,stop);});
+    ['mouseleave','focusout'].forEach(function(ev){track.addEventListener(ev,play);});
+    sync();play();
+    window.addEventListener('resize',sync);
+  })();
+</script>
+</body>
+</html>
