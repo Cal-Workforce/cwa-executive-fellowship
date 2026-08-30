@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Vision — California Workforce Association</title>
+<meta name="description" content="What the California Workforce Association does for the state's 45 local workforce boards — and the change we're working toward for every community.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E27A50; --coral-dark:#C9623B; --coral-tint:#F6E4DB; --coral-wash:#FBF0EA;
+    --navy:#1A375D; --navy-deep:#122842; --navy-tint:#3B5578; --navy-wash:#EAEEF3;
+    --ground:#FAF7F3; --white:#FFFFFF; --ink:#1A375D; --muted:#5B6A7D; --line:#E7DFD6;
+    --shadow:0 18px 48px -24px rgba(26,55,93,.28);
+    --shadow-sm:0 8px 24px -16px rgba(26,55,93,.35);
+    --radius:20px; --radius-lg:28px; --maxw:1100px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--ground);color:var(--ink);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;width:100%}
+  section{padding:88px 0}
+
+  h1,h2,h3{line-height:1.08;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+  h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800}
+  h2{font-size:clamp(2rem,4.2vw,3rem)}
+  h3{font-size:1.2rem;letter-spacing:-.01em}
+  p{color:var(--muted)}
+  .lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--navy-tint);font-weight:400}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-dark);display:inline-block}
+  .eyebrow.light{color:var(--coral)}
+  .hl{color:var(--coral)}
+
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:inherit;font-size:1rem;font-weight:600;letter-spacing:-.01em;padding:16px 30px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),color .2s;line-height:1}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 12px 30px -12px rgba(226,122,80,.7)}
+  .btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--coral);color:var(--coral-dark);transform:translateY(-2px)}
+  .btn-arrow{transition:transform .25s var(--ease)}
+  .btn:hover .btn-arrow{transform:translateX(4px)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:8px}
+  .linkarrow{display:inline-flex;align-items:center;gap:.4em;font-weight:600;color:var(--navy);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;padding-bottom:2px}
+  .linkarrow:hover{color:var(--coral-dark);border-color:var(--coral)}
+
+  /* Header + nav (shared) */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(250,247,243,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,223,214,.8)}
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+  .logo-img{height:54px;width:auto;display:block}
+  .nav{display:flex;align-items:center;gap:30px}
+  .nav a.navlink{font-size:.95rem;font-weight:500;color:var(--navy);transition:color .2s;position:relative}
+  .nav a.navlink:hover{color:var(--coral-dark)}
+  .nav a.navlink::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--coral);transition:right .25s var(--ease)}
+  .nav a.navlink:hover::after{right:0}
+  .site .btn{padding:11px 22px;font-size:.9rem}
+  .nav-item{position:relative;display:flex;align-items:center}
+  .subtoggle{font-family:inherit;background:none;border:none;cursor:pointer;font-size:.95rem;font-weight:500;color:var(--navy);display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .subtoggle:hover,.has-sub:focus-within .subtoggle{color:var(--coral-dark)}
+  .subtoggle .caret{font-size:.66rem;color:var(--coral-dark);transition:transform .2s var(--ease)}
+  .has-sub:hover .caret,.subtoggle[aria-expanded="true"] .caret{transform:rotate(180deg)}
+  .submenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);min-width:210px;background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease);z-index:70}
+  .submenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .has-sub:hover .submenu,.has-sub:focus-within .submenu,.submenu.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .submenu a{display:block;padding:11px 14px;border-radius:9px;font-size:.92rem;font-weight:500;color:var(--navy);transition:background .18s,color .18s}
+  .submenu a:hover{background:var(--coral-wash);color:var(--coral-dark)}
+  .navtoggle{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
+  .navtoggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:2px}
+  @media (max-width:860px){
+    .nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--ground);border-bottom:1px solid var(--line);padding:8px 24px 20px;transform:translateY(-140%);transition:transform .3s var(--ease);box-shadow:var(--shadow)}
+    .nav.open{transform:translateY(0)}
+    .nav a.navlink{padding:14px 0;border-bottom:1px solid var(--line)}
+    .nav a.navlink::after{display:none}
+    .nav .btn{margin-top:14px;justify-content:center}
+    .navtoggle{display:block}
+    .nav-item{display:block}
+    .subtoggle{width:100%;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem;font-weight:500}
+    .submenu{position:static;transform:none;opacity:1;visibility:hidden;display:none;min-width:0;background:transparent;border:none;box-shadow:none;padding:0 0 0 14px}
+    .submenu::before{display:none}
+    .submenu.open{display:block;visibility:visible}
+    .submenu a{padding:13px 0;border-bottom:1px solid var(--line)}
+  }
+
+  /* Hero */
+  .pagehero{position:relative;padding:84px 0 56px;overflow:hidden}
+  .pagehero .wrap{position:relative;z-index:2;max-width:860px}
+  .pagehero h1{margin:18px 0 22px}
+  .pagehero .lead{max-width:720px}
+  .geo{position:absolute;border-radius:50%;z-index:1;pointer-events:none}
+  .pagehero .g1{width:420px;height:420px;top:-150px;right:-130px;background:var(--coral-wash)}
+  .pagehero .g2{width:170px;height:170px;bottom:-30px;right:12%;border:2px solid var(--coral-tint)}
+  .pagehero .g3{width:13px;height:13px;top:38%;right:6%;background:var(--coral)}
+  .pagehero .g4{width:10px;height:10px;bottom:24%;left:1%;background:var(--navy)}
+
+  /* Section heading */
+  .sec-head{max-width:680px;margin-bottom:52px}
+  .sec-head h2{margin:14px 0 14px}
+  .sec-head p{font-size:1.08rem}
+
+  /* What we do — pillars */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;display:flex;flex-direction:column}
+  .pillar:hover{transform:translateY(-6px);box-shadow:0 26px 60px -28px rgba(26,55,93,.4);border-color:var(--coral-tint)}
+  .pillar .ico{width:56px;height:56px;border-radius:15px;background:var(--coral-wash);display:grid;place-items:center;margin-bottom:20px}
+  .pillar .ico svg{width:29px;height:29px;stroke:var(--coral-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .pillar h3{margin-bottom:10px}
+  .pillar p{font-size:.97rem}
+  .pillar .sothat{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--navy);font-weight:600;font-size:.95rem}
+  .pillar .sothat b{color:var(--coral-dark);font-weight:700}
+  .pillar .inpractice{margin-top:12px;font-size:.83rem;color:var(--muted);line-height:1.5}
+  .pillar .inpractice span{color:var(--navy-tint);font-weight:600}
+
+  /* Outcomes (dark) */
+  .outcomes-sec{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+  .outcomes-sec .wrap{position:relative;z-index:2}
+  .outcomes-sec h2{color:#fff}
+  .outcomes-sec .eyebrow{color:var(--coral)}
+  .outcomes-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .outcome{display:flex;gap:15px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 24px;transition:background .3s}
+  .outcome:hover{background:rgba(255,255,255,.08)}
+  .outcome svg{width:26px;height:26px;flex:none;stroke:var(--coral);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+  .outcome p{color:#fff;font-size:1.05rem;font-weight:500;line-height:1.45;margin:0}
+  .outcome-close{margin-top:34px;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:700;line-height:1.3;color:#fff;max-width:840px;letter-spacing:-.01em}
+  .outcome-close .hl{color:var(--coral)}
+  .outcomes-sec .og1{position:absolute;width:520px;height:520px;border:2px solid rgba(226,122,80,.14);border-radius:50%;top:-220px;right:-160px;z-index:1}
+  .outcomes-sec .og2{position:absolute;width:16px;height:16px;background:var(--coral);border-radius:50%;bottom:16%;left:6%;z-index:1}
+
+  /* Foundation note */
+  .foundation{background:var(--coral-wash);border-left:4px solid var(--coral);border-radius:0 16px 16px 0;padding:24px 28px;max-width:760px;margin-bottom:8px}
+  .foundation p{color:var(--navy);font-size:1.02rem;margin:0}
+  .foundation p b{color:var(--coral-dark)}
+
+  /* CTA */
+  .cta-sec{background:var(--navy-wash)}
+  .cta-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:52px 48px;text-align:center;max-width:820px;margin:0 auto}
+  .cta-card h2{margin-bottom:14px}
+  .cta-card p{font-size:1.08rem;max-width:560px;margin:0 auto 28px}
+  .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* Footer */
+  footer.site{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:52px 0;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between}
+  .foot-lockup .cwa{font-weight:800;font-size:1.35rem;color:var(--coral);letter-spacing:.02em}
+  .foot-lockup .ef{display:block;font-weight:500;font-size:.82rem;color:rgba(255,255,255,.8);text-transform:lowercase;margin-top:3px}
+  footer .tag{font-size:.85rem;margin-top:12px;max-width:260px}
+  footer nav{display:flex;gap:44px;flex-wrap:wrap}
+  footer .col h4{color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+  footer .col a{display:block;font-size:.92rem;padding:4px 0;transition:color .2s}
+  footer .col a:hover{color:var(--coral)}
+
+  /* Reveal */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+  @media (prefers-reduced-motion:reduce){ .js .reveal{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+
+  @media (max-width:760px){ .outcomes-list{grid-template-columns:1fr} }
+  @media (max-width:640px){ section{padding:64px 0} body{font-size:17px} .logo-img{height:44px} .cta-card{padding:40px 26px} .cta-btns .btn{width:100%;justify-content:center} footer .wrap{flex-direction:column} footer nav{gap:28px} }
+</style>
+</head>
+<script>document.documentElement.className+=' js';</script>
+<body>
+
+<!-- ============ HEADER (shared) ============ -->
+<header class="site">
+  <div class="wrap">
+    <a class="lockup" href="index.html" aria-label="California Workforce Association home">
+      <img class="logo-img" src="assets/logo-primary.svg" alt="California Workforce Association">
+    </a>
+    <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About Us <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-about" role="menu" aria-label="About Us">
+          <a role="menuitem" href="vision.html">Our Vision</a>
+          <a role="menuitem" href="#">Our Team</a>
+          <a role="menuitem" href="#">Contact Us</a>
+        </div>
+      </div>
+      <a class="navlink" href="#">Advocacy</a>
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-members">Our Members <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-members" role="menu" aria-label="Our Members">
+          <a role="menuitem" href="#">Boards</a>
+          <a role="menuitem" href="#">Affiliates</a>
+        </div>
+      </div>
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-conferences">Conferences <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-conferences" role="menu" aria-label="Conferences">
+          <a role="menuitem" href="#">Meeting of the Minds</a>
+          <a role="menuitem" href="#">Workcon</a>
+        </div>
+      </div>
+      <div class="nav-item has-sub">
+        <button class="subtoggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-resources">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="submenu" id="submenu-resources" role="menu" aria-label="Resources">
+          <a role="menuitem" href="#">Toolkits</a>
+          <a role="menuitem" href="self-sufficiency-calculator.html">Self-Sufficiency Calculator</a>
+          <a role="menuitem" href="#">Publications</a>
+          <a role="menuitem" href="#">Career Opportunities</a>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="become-a-member.html">Become a Member <span class="btn-arrow" aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="pagehero">
+  <div class="geo g1" aria-hidden="true"></div>
+  <div class="geo g2" aria-hidden="true"></div>
+  <div class="geo g3" aria-hidden="true"></div>
+  <div class="geo g4" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Vision</span>
+    <h1 class="reveal d1">We help California's workforce boards do their <span class="hl">best work</span>.</h1>
+    <p class="lead reveal d2">Think of us as a two-way bridge. We carry what's really happening in local communities up to the people who shape policy and funding — and we bring clarity, resources, and support back down to the 45 local boards doing the work. All so more Californians find good jobs, and more businesses find the people they need.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section aria-labelledby="do-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2 id="do-h">Five ways we show up for the field.</h2>
+    </div>
+    <div class="foundation reveal">
+      <p><b>It starts with listening.</b> We gather the data and sit down with directors across all 45 boards, so everything we do is grounded in what the field actually needs — not what we assume it does.</p>
+    </div>
+    <div class="pillars" style="margin-top:36px">
+
+      <!-- Advocate -->
+      <div class="pillar reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M17 8a3 3 0 0 1 0 8"/><path d="M6 13v4a2 2 0 0 0 2 2h1"/></svg></div>
+        <h3>We speak up for the field</h3>
+        <p>We take the real stories and needs of local boards straight to the decision-makers in Sacramento, Washington, and philanthropy who hold the levers.</p>
+        <div class="sothat"><b>So that</b> the people shaping policy and funding actually hear — and act on — what communities need.</div>
+        <div class="inpractice"><span>In practice:</span> a shared legislative agenda, testimony and comment letters, and one clear statewide story of impact.</div>
+      </div>
+
+      <!-- Translate -->
+      <div class="pillar reveal d1">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h11v9H4z"/><path d="M7 8h5M7 10.5h3"/><path d="M13 11h7v9h-7z"/><path d="M16 14.5h1.5M16 17h2.5"/></svg></div>
+        <h3>We make policy make sense</h3>
+        <p>When new rules and funding come down from the state or the feds, we turn the fine print into plain language and clear next steps.</p>
+        <div class="sothat"><b>So that</b> boards spend less time decoding change and more time serving their communities.</div>
+        <div class="inpractice"><span>In practice:</span> quick plain-language summaries and rapid briefings the moment big guidance drops.</div>
+      </div>
+
+      <!-- Move Resources -->
+      <div class="pillar reveal d2">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h13l-3-3M3 7l3 3"/><path d="M21 17H8l3 3M21 17l-3-3"/></svg></div>
+        <h3>We get resources to the front lines</h3>
+        <p>We help funders and agencies move dollars and opportunities to the boards ready to put them to work — and open doors a single board couldn't reach alone.</p>
+        <div class="sothat"><b>So that</b> funding lands where it's needed most, faster and with a clear purpose.</div>
+        <div class="inpractice"><span>In practice:</span> grant pass-through, shared grant-writing, and brokering philanthropic and public dollars to the field.</div>
+      </div>
+
+      <!-- Connect -->
+      <div class="pillar reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="18" cy="7" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 8.5l2.2 7M15.5 8.5l-2.2 7M9 7h6"/></svg></div>
+        <h3>We bring the field together</h3>
+        <p>We create the rooms — and the relationships — where boards and partners, traditional and not, learn from each other and solve shared problems.</p>
+        <div class="sothat"><b>So that</b> no board works alone, and the whole field grows stronger together.</div>
+        <div class="inpractice"><span>In practice:</span> conferences, leadership programs, local convenings, virtual roundtables, and project cohorts.</div>
+      </div>
+
+      <!-- Anticipate & Build Capacity -->
+      <div class="pillar reveal d1">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-2.5M12 12l-2 3"/><path d="M12 3v2M21 12h-2M12 21v-2M3 12h2"/></svg></div>
+        <h3>We help boards get ready for what's next</h3>
+        <p>We watch the horizon and build boards' skills, tools, and data before a need becomes an emergency.</p>
+        <div class="sothat"><b>So that</b> boards meet change ready — not caught off guard.</div>
+        <div class="inpractice"><span>In practice:</span> curated learning, and a growing digital home for board-level data, translations, and ready-to-use tools.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section class="outcomes-sec" aria-labelledby="out-h">
+  <div class="geo og1" aria-hidden="true"></div>
+  <div class="geo og2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:36px">
+      <span class="eyebrow light">The change we're working toward</span>
+      <h2 id="out-h">What success looks like.</h2>
+    </div>
+    <div class="outcomes-list">
+      <div class="outcome reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>One clear, trusted voice for the field — and decision-makers who actually listen.</p></div>
+      <div class="outcome reveal d1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>Boards acting on new policy in days, not months.</p></div>
+      <div class="outcome reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>Funding that reaches the communities that need it most.</p></div>
+      <div class="outcome reveal d1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>No board left to figure it out alone.</p></div>
+      <div class="outcome reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>Boards that see change coming — and are ready for it.</p></div>
+      <div class="outcome reveal d1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p>A field that keeps getting stronger, year after year.</p></div>
+    </div>
+    <p class="outcome-close reveal">And the part that matters most: more Californians, in <span class="hl">every</span> community, connected to good jobs and real economic security.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Every board belongs at this table.</h2>
+      <p>Big or small, rural or urban — CWA is stronger with your voice in it. See what membership brings, or explore the work we do together.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="become-a-member.html">Become a member <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="index.html">Explore CWA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (shared) ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="foot-lockup"><span class="cwa">CWA</span><span class="ef">california workforce association</span></div>
+      <p class="tag">The champion of California's local workforce boards.</p>
+    </div>
+    <nav aria-label="Footer">
+      <div class="col"><h4>Explore</h4><a href="vision.html">Our Vision</a><a href="#">Advocacy</a><a href="#">Resources</a></div>
+      <div class="col"><h4>Our Members</h4><a href="#">Boards</a><a href="#">Affiliates</a><a href="become-a-member.html">Become a Member</a></div>
+      <div class="col"><h4>Connect</h4><a href="#">Contact</a><a href="#">Newsletter</a><a href="#">Privacy</a></div>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+  (function(){
+    var t=document.querySelector('.navtoggle'),n=document.getElementById('primary-nav');
+    if(!t)return;
+    t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  })();
+  (function(){
+    var items=[].slice.call(document.querySelectorAll('.has-sub'));
+    function closeAll(except){items.forEach(function(it){if(it!==except){it.querySelector('.submenu').classList.remove('open');it.querySelector('.subtoggle').setAttribute('aria-expanded','false');}});}
+    items.forEach(function(it){
+      var btn=it.querySelector('.subtoggle'),menu=it.querySelector('.submenu');
+      if(!btn||!menu)return;
+      btn.addEventListener('click',function(e){e.stopPropagation();var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open);closeAll(it);});
+    });
+    document.addEventListener('click',function(e){if(!e.target.closest('.has-sub'))closeAll(null);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  })();
+</script>
+</body>
+</html>
