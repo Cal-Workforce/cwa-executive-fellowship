@@ -201,7 +201,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <input type="search" id="board-search" placeholder="Search by board or county…" aria-label="Search local boards">
       </div>
-      <div class="board-count"><b id="board-shown">45</b> of 45 boards</div>
+      <div class="board-count"><b id="board-shown">44</b> of <span id="board-total">44</span> boards</div>
     </div>
 
     <div class="boards-grid" id="boards-grid">
@@ -266,7 +266,7 @@
         <a class="board-visit" href="https://kingsworkforce.org/" target="_blank" rel="noopener">Visit website <span aria-hidden="true">→</span></a>
       </article>
       <article class="board">
-        <div class="board-logo"><img src="https://images.squarespace-cdn.com/content/v1/59316d296a49635038ba07f9/1553106316276-X5G2S0L7O3R8V8Z8Z8Z8/Long+Beach+Logo.png" alt="Long Beach WIN logo" loading="lazy"></div>
+        <div class="board-logo"><img src="assets/boards/long-beach-win.png" alt="Long Beach WIN logo" loading="lazy"></div>
         <h3>Long Beach WIN</h3>
         <p class="serves"><span>Serves:</span> Cities of Long Beach and Signal Hill</p>
         <a class="board-visit" href="https://www.longbeach.gov/economicdevelopment/workforce-development/" target="_blank" rel="noopener">Visit website <span aria-hidden="true">→</span></a>
@@ -288,12 +288,6 @@
         <h3>Madera County WDB</h3>
         <p class="serves"><span>Serves:</span> Madera County</p>
         <a class="board-visit" href="https://www.maderaworkforce.org/" target="_blank" rel="noopener">Visit website <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="board">
-        <div class="board-logo"><img src="assets/boards/merced-county-wdb.png" alt="Merced County WDB logo" loading="lazy"></div>
-        <h3>Merced County WDB</h3>
-        <p class="serves"><span>Serves:</span> Merced County</p>
-        <a class="board-visit" href="http://www.workforce-merced.com/" target="_blank" rel="noopener">Visit website <span aria-hidden="true">→</span></a>
       </article>
       <article class="board">
         <div class="board-logo"><img src="assets/boards/monterey-county-wdb.png" alt="Monterey County WDB logo" loading="lazy"></div>
@@ -540,6 +534,9 @@
     var cards=[].slice.call(grid.querySelectorAll('.board')).map(function(c){
       return {el:c, text:(c.querySelector('h3').textContent+' '+c.querySelector('.serves').textContent).toLowerCase()};
     });
+    var total=document.getElementById('board-total');
+    if(total) total.textContent=cards.length;
+    shown.textContent=cards.length;
     input.addEventListener('input',function(){
       var q=input.value.trim().toLowerCase(), n=0;
       cards.forEach(function(c){ var hit=!q||c.text.indexOf(q)>-1; c.el.style.display=hit?'':'none'; if(hit)n++; });
